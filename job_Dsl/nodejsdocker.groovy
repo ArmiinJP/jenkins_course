@@ -6,7 +6,7 @@ job('nodejs-app-wrap-by-docker') {
         }
     }
     triggers {
-        scm('H/5 * * * *')
+        scm('H/20 * * * *')
     }
 
     steps {
