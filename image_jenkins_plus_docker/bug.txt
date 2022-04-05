@@ -1,0 +1,7 @@
+یه باگی این قضیه داره اونم اینه که فایل /var/run/docker.sock  داخل کانتینر که میریم گروهش داکر نیست.
+docker run --rm -d -v jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --name jenkins -p 8080:8080 -p 50000:50000 armiinjp/jenkins_with_docker:v2
+
+برای حل این مشکل باید با دستور 
+chown root:docker /var/run/docker.sock 
+مالیکیت فایل را درست کنی تا بتونه یوزر jenkins به داکر دسترسی پیدا کنه.
+
