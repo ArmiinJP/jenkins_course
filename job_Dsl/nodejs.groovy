@@ -1,4 +1,4 @@
-job('NodeJS example') {
+job('nodejs-app') {
     scm {
         git('https://github.com/ArmiinJP/jenkins_course.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('test')
@@ -6,7 +6,7 @@ job('NodeJS example') {
         }
     }
     triggers {
-        scm('H/5 * * * *')
+        scm('H/20 * * * *')
     }
     wrappers {
         nodejs('nodejs') // this is the name of the NodeJS installation in 
