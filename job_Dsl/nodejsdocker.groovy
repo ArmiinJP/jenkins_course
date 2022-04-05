@@ -1,4 +1,4 @@
-job('NodeJS_my_Docker') {
+job('nodejs-app-wrap-by-docker') {
     scm {
         git('https://github.com/ArmiinJP/jenkins_course.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
