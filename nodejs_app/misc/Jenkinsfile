@@ -7,7 +7,10 @@ node {
    }
    stage('test') {
      nodejs(nodeJSInstallationName: 'nodejs') {
-       dir './nodejs_app'
+       dir ("./nodejs_app")
+        {
+           sh "pwd"
+        }
        sh 'npm install --only=dev'
        sh 'npm test'
      }
