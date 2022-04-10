@@ -5,18 +5,18 @@ node {
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commit_id = readFile('.git/commit-id').trim()
    }
-   stage('test') {
-     nodejs(nodeJSInstallationName: 'nodejs') {
-       dir ("./nodejs_app")
-        {
-           sh 'npm install --only=dev'
-           sh 'npm test'
-        }
-      }
-    }
+//    stage('test') {
+//      nodejs(nodeJSInstallationName: 'nodejs') {
+//        dir ("./nodejs_app")
+//         {
+//            sh 'npm install --only=dev'
+//            sh 'npm test'
+//         }
+//       }
+//     }
    stage('docker build/push') {
-     docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
-       def app = docker.build("wardviaene/docker-nodejs-demo:${commit_id}", '.').push()
-     }
-   }
+//      docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
+       def app = docker.build("localhost:5000/test_nodejs:${commit_id}", '.').push()
+//      }
+  }
 }
